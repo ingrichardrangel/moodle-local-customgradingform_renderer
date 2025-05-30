@@ -22,7 +22,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Rubric Importer from CSV';
+$string['pluginname'] = 'Rubric Importer Core';
 $string['customgradingform_renderer:import'] = 'Allows the user to import grading rubrics from a CSV file into an activity.';
 $string['importfromcsv'] = 'Import rubric from CSV';
 $string['choosecsvfile'] = 'Choose CSV file';
