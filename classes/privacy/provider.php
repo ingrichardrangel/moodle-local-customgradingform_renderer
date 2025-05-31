@@ -33,11 +33,11 @@ use core_privacy\local\metadata\null_provider;
 class provider implements null_provider {
 
     /**
-     * Returns a language string explaining why this plugin stores no data.
+     * Returns a language string key explaining why this plugin stores no data.
      *
      * @return string
      */
     public static function get_reason(): string {
-        return get_string('privacy:metadata', 'local_customgradingform_renderer');
+        return 'privacy:metadata';
     }
 }
