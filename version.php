@@ -25,9 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_customgradingform_renderer'; // Full name of the plugin (used for diagnostics).
-$plugin->version   = 2025052800; // Plugin version (YYYYMMDDXX).
+$plugin->version   = 2025053000; // Plugin version (YYYYMMDDXX).
 $plugin->requires  = 2022111500; // Minimum required Moodle version (Moodle 4.1).
 $plugin->maturity = MATURITY_STABLE; // Development maturity level.
-$plugin->release = '1.0.1'; // Human-readable release name.
+$plugin->release = '1.0.2'; // Human-readable release name.
 
 $plugin->dependencies = []; // No other plugin dependencies.
