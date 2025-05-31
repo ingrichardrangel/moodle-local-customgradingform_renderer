@@ -119,13 +119,15 @@ if ($mform->is_cancelled()) {
         } else {
             $rubric = [];
             foreach ($rows as $row) {
-                if (count($row) < 3) continue;
+                if (count($row) < 3) { continue;
+                }
                 $row = array_combine($headers, $row);
                 $criterion = clean_param(trim($row['criterion']), PARAM_TEXT);
                 $description = clean_param(trim($row['level_description']), PARAM_TEXT);
                 $score = (float) clean_param($row['score'], PARAM_FLOAT);
 
-                if (!isset($rubric[$criterion])) $rubric[$criterion] = [];
+                if (!isset($rubric[$criterion])) { $rubric[$criterion] = [];
+                }
                 $rubric[$criterion][] = ['definition' => $description, 'score' => $score];
             }
 
@@ -199,23 +201,23 @@ if ($mform->is_cancelled()) {
                 ]);
                 $definitionid = $DB->insert_record('grading_definitions', $definition);
 
-                $criteria_order = 0;
+                $criteriaorder = 0;
                 foreach ($rubric as $criteriontext => $levels) {
                     $criterion = new stdClass();
                     $criterion->definitionid = $definitionid;
                     $criterion->description = $criteriontext;
                     $criterion->descriptionformat = FORMAT_HTML;
-                    $criterion->sortorder = $criteria_order++;
+                    $criterion->sortorder = $criteriaorder++;
                     $criterionid = $DB->insert_record('gradingform_rubric_criteria', $criterion);
 
-                    $levels_order = 0;
+                    $levelsorder = 0;
                     foreach ($levels as $level) {
                         $levelobj = new stdClass();
                         $levelobj->criterionid = $criterionid;
                         $levelobj->definition = $level['definition'];
                         $levelobj->definitionformat = FORMAT_HTML;
                         $levelobj->score = $level['score'];
-                        $levelobj->sortorder = $levels_order++;
+                        $levelobj->sortorder = $levelsorder++;
                         $DB->insert_record('gradingform_rubric_levels', $levelobj);
                     }
                 }
